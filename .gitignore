@@ -1,6 +1,6 @@
 #ignore folders new
 obj/
 bin/
-github_sqlite.depend
-github_sqlite.layout
+fileset.depend
+fileset.layout
 
