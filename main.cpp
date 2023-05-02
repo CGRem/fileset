@@ -31,9 +31,9 @@ int main()
     file_read_F.close();
 
     objects_r::Rem_Point point;
-    point.cor_t = 16;
-    point.dor_m = 25;
-    point.for_s = 249;
+    point.cor_t = 28;
+    point.dor_m = 17;
+    point.for_s = 250;
 
     ofstream objectfile;
     objectfile.open(path_object_Str);
