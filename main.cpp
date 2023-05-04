@@ -3,6 +3,9 @@
 #include "objects.h"
 #include "function.h"
 
+// статические переменные
+bool objects_r::MainSettings::SETTING_TIME = 0;
+
 using namespace std;
 
 int main()
