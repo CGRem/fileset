@@ -4,7 +4,7 @@
 #include "function.h"
 
 // статические переменные
-bool objects_r::MainSettings::SETTING_TIME = 0;
+int objects_r::MainSettings::SETTING_TIME = 0;
 
 using namespace std;
 
@@ -59,6 +59,12 @@ int main()
         cout << "ошибка чтения файла" << endl;
     }
     objectfile_out.close();
+
+    objects_r::MainSettings::SETTING_TIME = 256398;
+    string path_filesettings_Str = "cr_files\\filesettings.txt";
+    objects_r::FileSettings filesettings;
+    filesettings.write_settings(path_filesettings_Str);
+//    func_r::print_read_settings(path_filesettings_Str);
 
     system("pause");
     return 0;
