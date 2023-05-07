@@ -23,7 +23,7 @@ namespace objects_r
         Setting_String = "";
         char temp_Ch;
         ifstream setting_file_Ifs;
-        setting_file_Ifs.open(path_settings_Str, ios::out | ios::binary);
+        setting_file_Ifs.open(path_settings_Str, ios::in | ios::binary);
         if (setting_file_Ifs.is_open()){
             setting_file_Ifs.read((char*)&Setting_Time, sizeof(int));
             setting_file_Ifs.read((char*)&length_str_Int, sizeof(int));

@@ -20,5 +20,9 @@ namespace objects_r
         void write_settings(string& path_file_settings);
         void read_settings(string& path_file_settings);
     };
+    struct st_Filesettings{
+        int Setting_Time = 0;
+        string Setting_String = "00";
+    };
 }
 #endif // OBJECTS_H_INCLUDED
