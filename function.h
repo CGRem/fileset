@@ -3,8 +3,7 @@
 #include "objects.h"
 namespace func_r
 {
-//    void set_write_settings(string path_settings_Str);
-    void print_read_settings(string path_settings_Str);
+
 }
 
 

@@ -1,5 +1,0 @@
-string
-for
-0
-write 
-next line
