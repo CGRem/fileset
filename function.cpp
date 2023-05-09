@@ -41,4 +41,35 @@ namespace func_r
 
         return 1;
     }
+    void vcr_output_element(vector<int>& array_int_Vcr){
+        // вывод элемента векторного массива
+        cout << "элемент векторного массива\t" << array_int_Vcr[15] << endl;
+    }
+}
+namespace db_r
+{
+    int path_allrows_vcr(string& path_db_Str, vector<objects_r::st_Address>& address_Vcr){
+        sqlite3* db;
+        char path_db_Ch[255];
+        path_db_Str.copy(path_db_Ch, path_db_Str.length());
+        sqlite3_open_v2(path_db_Ch, &db, SQLITE_OPEN_READWRITE, NULL);
+        int rc;
+        sqlite3_stmt* db_rows;
+        char sql_request[] = "SELECT * FROM list_address";
+        rc = sqlite3_prepare(db, sql_request, -1, &db_rows, NULL);
+        if (rc != SQLITE_OK) {
+            fprintf(stderr, "errors BD: %s.\n", sqlite3_errmsg(db));
+            sqlite3_close(db);
+            return(3);
+        }
+        while ( sqlite3_step(db_rows) == SQLITE_ROW) {
+            objects_r::st_Address row_address_St;
+            row_address_St.number_Int = sqlite3_column_int(db_rows, 0);
+            row_address_St.town_Str = (char*)sqlite3_column_text(db_rows, 1);
+            row_address_St.street_Str = (char*)sqlite3_column_text(db_rows, 2);
+            row_address_St.building_Int = sqlite3_column_int(db_rows, 3);
+            address_Vcr.push_back(row_address_St);
+        }
+        sqlite3_close(db);
+    }
 }

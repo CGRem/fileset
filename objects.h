@@ -2,6 +2,7 @@
 #define OBJECTS_H_INCLUDED
 #include <fstream>
 #include <iostream>
+#include <vector>
 
 using namespace std;
 
@@ -23,6 +24,12 @@ namespace objects_r
     struct st_Filesettings{
         int Setting_Time = 0;
         string Setting_String = "00";
+    };
+    struct st_Address{
+        int number_Int = 0;
+        string town_Str = "";
+        string street_Str = "";
+        int building_Int = 0;
     };
 }
 #endif // OBJECTS_H_INCLUDED
