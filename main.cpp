@@ -15,15 +15,21 @@ using namespace std;
 int main()
 {
     setlocale (LC_ALL, "Rus");
+    // запись строки
+    objects_r::st_Address newrow_St;
+    string path_db_Str = "db//address.db";
+    int errmsg = db_r::path_writerow_st(path_db_Str, newrow_St);
+
     // получение из базы всех записей
     vector<objects_r::st_Address> address_Vcr;
-    string path_db_Str = "db//address.db";
+
     db_r::path_allrows_vcr(path_db_Str, address_Vcr);
     int count_rows_Int = address_Vcr.size();
     for (int index=0; index < count_rows_Int; index++){
         cout << address_Vcr[index].number_Int << "\t\t" << address_Vcr[index].town_Str <<
          "\t\t" << address_Vcr[index].street_Str << "\t\t" << address_Vcr[index].building_Int << endl;
     }
+
 
 /*
     // векторные массивы

@@ -49,6 +49,20 @@ namespace func_r
 namespace db_r
 {
     // C
+    int path_writerow_st(string& path_db_Str, objects_r::st_Address& rowadress_St){
+        sqlite3* db;
+        char path_db_Ch[255];
+        char* errMsg = 0;
+        path_db_Str.copy(path_db_Ch, path_db_Str.length());
+        sqlite3_open_v2(path_db_Ch, &db, SQLITE_OPEN_READWRITE, NULL);
+        int rc;
+        rc = sqlite3_exec(db, "INSERT INTO list_address VALUES(null, 'e', 'linxed', 59)", NULL, NULL, &errMsg);
+        if (rc != SQLITE_OK) {
+            fprintf(stderr, "errors BD: %s.\n", sqlite3_errmsg(db));
+            sqlite3_close(db);
+            return(2);
+        }
+    }
     // "INSERT INTO cases (case_number, department, type, manufacturer, model, serial, reason, equipment, defects," \
               " condition, fellow, client, phone, dp_phone, date_input, client_text) " \
               "VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)"

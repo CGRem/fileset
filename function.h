@@ -12,6 +12,7 @@ namespace func_r
 }
 namespace db_r
 {
+    int path_writerow_st(string& path_db_Str, objects_r::st_Address& rowadress_St);
     int path_allrows_vcr(string& path_db_Str, vector<objects_r::st_Address>& address_Vcr);
 }
 
