@@ -19,7 +19,8 @@ int main()
     vector<objects_r::st_Address> address_Vcr;
     string path_db_Str = "db//address.db";
     db_r::path_allrows_vcr(path_db_Str, address_Vcr);
-    for (int index=0; index < address_Vcr.size(); index++){
+    int count_rows_Int = address_Vcr.size();
+    for (int index=0; index < count_rows_Int; index++){
         cout << address_Vcr[index].number_Int << "\t\t" << address_Vcr[index].town_Str <<
          "\t\t" << address_Vcr[index].street_Str << "\t\t" << address_Vcr[index].building_Int << endl;
     }

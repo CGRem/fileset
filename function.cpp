@@ -48,6 +48,11 @@ namespace func_r
 }
 namespace db_r
 {
+    // C
+    // "INSERT INTO cases (case_number, department, type, manufacturer, model, serial, reason, equipment, defects," \
+              " condition, fellow, client, phone, dp_phone, date_input, client_text) " \
+              "VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)"
+    // R
     int path_allrows_vcr(string& path_db_Str, vector<objects_r::st_Address>& address_Vcr){
         sqlite3* db;
         char path_db_Ch[255];
