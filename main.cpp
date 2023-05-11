@@ -15,22 +15,26 @@ using namespace std;
 int main()
 {
     setlocale (LC_ALL, "Rus");
-    // запись строки
-    objects_r::st_Address newrow_St;
-    string path_db_Str = "db//address.db";
-    int errmsg = db_r::path_writerow_st(path_db_Str, newrow_St);
-
-    // получение из базы всех записей
     vector<objects_r::st_Address> address_Vcr;
+    string path_db_Str = "db//address.db";
 
     db_r::path_allrows_vcr(path_db_Str, address_Vcr);
-    int count_rows_Int = address_Vcr.size();
-    for (int index=0; index < count_rows_Int; index++){
-        cout << address_Vcr[index].number_Int << "\t\t" << address_Vcr[index].town_Str <<
-         "\t\t" << address_Vcr[index].street_Str << "\t\t" << address_Vcr[index].building_Int << endl;
-    }
 
+    // запись строки
+//    objects_r::st_Address newrow_St;
+//    int errmsg = db_r::path_writerow_st(path_db_Str, newrow_St);
 
+    // вывод содержимого вектора
+    db_r::vcr_outprint_db(address_Vcr);
+    //
+    objects_r::st_Address new_adress_St = {0, "timberline", "elmet", 33};
+    int id_row = 2;
+    db_r::path_update_row(path_db_Str, new_adress_St, id_row);
+    //
+//    db_r::path_delete_row(path_db_Str, id_row);
+    address_Vcr.clear();
+    db_r::path_allrows_vcr(path_db_Str, address_Vcr);
+    db_r::vcr_outprint_db(address_Vcr);
 /*
     // векторные массивы
     srand(time(NULL));
